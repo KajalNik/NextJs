@@ -43,6 +43,7 @@ const buttonText = formType === 'SIGN_IN' ? 'Sign In' : 'Sign Up';
       {Object.keys(defaultValues).map((field) =>(
 
       <FormField
+        key={field}
         control={form.control}
         name={field as Path<T>}
         render={({ field }) => (
