@@ -1,6 +1,7 @@
 import { auth, signOut } from "@/auth";
 import QuestionCard from "@/components/cards/QuestionCard";
 import HomeFilters from "@/components/filters/HomeFilters";
+import QuestionForm from "@/components/forms/QuestionForm";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
@@ -75,6 +76,7 @@ const Home = async ({ searchParams }: SearchParams) => {
             <QuestionCard key={question._id} question={question}/>
           ))}
         </div>
+        <QuestionForm/>
       </section>
       <form
         className="px-10 pt-[100px]"
