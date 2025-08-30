@@ -5,6 +5,7 @@ import QuestionForm from "@/components/forms/QuestionForm";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
+import handleError from "@/lib/handlers/error";
 import Link from "next/link";
 
 const questions = [
@@ -38,11 +39,22 @@ const questions = [
   },
 ];
 
+const test = async() =>{
+  try{
+    throw new Error("Test Error")
+
+  }
+  catch(error){
+    return handleError(error);
+  }
+}
+
 interface SearchParams {
   searchParams: Promise<{ [key: string]: string }>;
 }
 
 const Home = async ({ searchParams }: SearchParams) => {
+
   const { query = "", filter = "" } = await searchParams;
   const session = await auth();
   const filteredQuestions = questions.filter((question) => {
