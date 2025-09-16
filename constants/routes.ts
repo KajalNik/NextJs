@@ -3,7 +3,7 @@ const ROUTES = {
     SIGN_IN: "/sign-in",
     SIGN_UP: "/sign-up",
     ASK_QUESTIONS: "/ask-quetions",
-    QUESTIONS:(id:string)=> `/quetion/${id}`,
+    QUESTIONS:(id:string)=> `/quetions/${id}`,
     TAGS: (id: string) => `/tags/${id}`,
     PROFILE: (id: string) => `/profile/${id}`,
   };

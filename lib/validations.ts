@@ -109,3 +109,28 @@ export const AccountSchema = z.object({
     .string()
     .min(1, { message: "Provider Account ID is required." }),
 });
+
+export const SignInWithOAuthSchema = z.object({
+  provider: z.enum(["google", "github"]),
+  providerAccountId: z
+    .string()
+    .min(1, { message: "Provider Account ID is required." }),
+  user: z.object({
+    name: z.string().min(1, { message: "Name is required." }),
+    username: z
+      .string()
+      .min(3, { message: "Username must be at least 3 characters long." }),
+    email: z
+      .string()
+      .email({ message: "Please provide a valid email address." }),
+    image: z.string().url("Invalid image URL").optional(),
+  }),
+});
+
+export const EditQuestionSchema = AskQuestionSchema.extend({
+  questionId: z.string().min(1, { message: "Question ID is required." }),
+});
+
+export const GetQuestionSchema = z.object({
+  questionId: z.string().min(1, { message: "Question ID is required." }),
+});
